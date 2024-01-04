@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TZP-eY-0jl">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -16,16 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e1J-31-eUO">
-                                <rect key="frame" x="131.33333333333331" y="391.66666666666669" width="130.33333333333331" height="68.666666666666686"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e1J-31-eUO">
+                                <rect key="frame" x="131.33333333333331" y="381" width="130.33333333333331" height="90"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ji1-Bc-2TG">
-                                        <rect key="frame" x="0.0" y="0.0" width="130.33333333333334" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="130.33333333333334" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="lIJ-pH-hbL"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Generate Dog"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeZ-5o-9Xf">
-                                        <rect key="frame" x="0.0" y="34.333333333333314" width="130.33333333333334" height="34.333333333333343"/>
+                                        <rect key="frame" x="27.666666666666657" y="50" width="75" height="40"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                     </button>
@@ -39,10 +42,33 @@
                             <constraint firstItem="e1J-31-eUO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6h5-BK-QpM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Mcj-Iw-RMz"/>
+                    <connections>
+                        <outlet property="generateDogButton" destination="Ji1-Bc-2TG" id="Xbf-LY-tiI"/>
+                        <outlet property="recentlyGeneratedDogButton" destination="FeZ-5o-9Xf" id="Sdy-Tg-hGF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="106" y="4"/>
+            <point key="canvasLocation" x="1031.2977099236641" y="3.5211267605633805"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FWy-Id-Rcq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TZP-eY-0jl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hfl-6i-Cdb">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vgW-t5-D9B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oaY-I0-Utr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="104.58015267175573" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>

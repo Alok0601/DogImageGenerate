@@ -8,22 +8,40 @@
 import UIKit
 
 class GenerateDogsViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    @IBOutlet weak var dogImage: UIImageView!
+    
+    @IBOutlet weak var generateButton: UIButton! {
+        didSet {
+            generateButton.setTitle(gererate, for: .normal)
+            generateButton.backgroundColor = UIColor.blue
+            generateButton.layer.cornerRadius = 20
+            generateButton.setTitleColor(.white, for: .normal)
+            generateButton.addTarget(self, action: #selector(generateButtonTapped), for: .touchUpInside)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    var viewModel: DogsViewModel?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = generateDogs
+        setupViewMode()
     }
-    */
-
+    
+    func setupViewMode() {
+        viewModel = DogsViewModel(cache: CacheDataManager())
+    }
+    
+    @objc func generateButtonTapped() {
+        generateButton.isEnabled = false
+        viewModel?.generateDog { [weak self] data in
+            DispatchQueue.main.async {
+                self?.generateButton.isEnabled = true
+                if let urlString = data?.message {
+                    self?.dogImage.load(url: URL(string: urlString)!)
+                }
+            }
+        }
+    }
 }
