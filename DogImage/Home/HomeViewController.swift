@@ -7,13 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
+    @IBOutlet weak var generateDogButton: UIButton!
+    
+    @IBOutlet weak var recentlyGeneratedDogButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
 
